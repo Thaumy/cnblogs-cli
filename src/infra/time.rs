@@ -2,6 +2,7 @@ use crate::args::TimeStyle;
 use chrono::{DateTime, Datelike, Local, TimeZone, Timelike, Utc};
 use std::fmt::Display;
 
+// TODO: bad day fmt, such as `02nd`
 pub fn display_cnb_time(time_str: &str, time_style: &TimeStyle) -> String {
     let rfc3339 = patch_rfc3339(time_str);
     let dt = DateTime::parse_from_rfc3339(&rfc3339)

@@ -30,6 +30,7 @@ impl Post {
         let blog_app = User::new(self.pat.to_owned()).get_info().await?.blog_app;
         let client = reqwest::Client::new();
 
+        // FIX: the para `pageSize` is not working, see: https://api.cnblogs.com/help#d97b73c2145eac70425f35d54b4ca681
         let req = {
             let url = openapi!("/blogs/{}/posts/{}/comments", blog_app, post_id);
             client.get(url).pat_auth(&self.pat)
